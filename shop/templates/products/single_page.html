@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="container-fluid pt-3" style="background-color: honeydew;">
+    <div class="container mt-5 " style="background-color: white; border: 2px solid black;">
+        
+            <div class="col-md-12">
+                <br>
+                <h3 class="display-4 mt-2 mb-2">{{course.name}}</h3>
+                <br>
+                <br>
+                <h5> Price : Rp {{course.price}}</h5>
+                <h5> Description : {{course.description}} </h5>
+                <br>
+                <br>
+                <br>
+            </div>
+
+        
+        <div class="row" >
+            <div class="col-md-6 ">
+                <img src="{{url_for('static',filename='images/' + course.image_1)}}" alt="{{course.name}}" width="530" height="300" style="border-radius: 10px;
+                margin-top: 15px;
+                margin-bottom: 15px;">
+            </div>
+            
+
+            <div class="col-md-6 ">
+                <img src="{{url_for('static',filename='images/' + course.image_2)}}" alt="{{course.name}}" width="530" height="300" style="border-radius: 10px;
+                margin-top: 15px;
+                margin-bottom: 15px;">
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        {% if current_user.is_authenticated %}
+            <form action="{{url_for('AddCart')}}" method="POST">
+                <input type="hidden" name="course_id" value="{{course.id}}">
+                <button type="submit" class="btn btn-sm btn-warning">Add to Cart</button>
+            </form>
+        <br>
+
+        {% endif %}
+
+    </div>
+    <br>
+    <br>
+</div>
+
+{% include 'footer.html' %}
+{% endblock content %}

@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% block content %}
+{% include 'navbar.html' %}
+
+
+<body>
+  <header class="py-5 mb-5" style="background-color:honeydew;">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-lg-12">
+          <h1 class="display-4 mt-5 mb-2">Welcome to TutorHi!</h1>
+          <p class="lead mb-5">TutorHi!, short for Tutor for Hire, is a website that helps college tutors to promote their service online. We also aim to help college students who are having a hard time understanding courses from their respective universities, by using our quality courses.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <br>
+  <br>
+  
+  <div class="container mb-5">
+    <div class="row">
+      <div class="col-md-12 mb-5">
+        <hr>
+        <image class="rounded mx-auto d-block" src="{{url_for('static', filename='etc/TutorHi-removebg-preview.png')}}">
+      </div>
+    </div>
+    
+
+    <div class="row container-fluid">
+      <div class="container-fluid mx-auto mb-5">
+        <h1 style="text-align: left;">Our Service</h1>
+        <br>
+        <p>We help college tutors to market their services for a cheap price</p>
+        <p>We help college students by offering a variety of affordable course packages</p>
+        <p>We're securing transactions by acting as a middleman</p>
+        <p class="mb-5">We also take custom course orders</p>
+        <a href="{{url_for('home')}}" class="btn btn-primary">Browse Our Courses</a>
+        <hr>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="container-fluid row mt-5" >   
+      <div class="mx-auto mt-5 mb-2" >
+        <h1>Contact Us</h1>
+        <div>
+          <br>
+          <strong>TutorHi!</strong>
+          <br>Universitas Gadjah Mada
+          <br>Final Project Praktikum PPL IUP 
+        </div>
+        <div>
+          <br>Phone : (+62) 1234567890
+          <br>Email : tutorhi@yahoo.com
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+{% include 'footer.html' %}
+{% endblock content %}

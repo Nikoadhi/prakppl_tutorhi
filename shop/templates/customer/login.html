@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container d-flex h-100">
+<div class="card mx-auto" style="width: 30rem;" >
+    <div class="card-header">
+      Sign In
+    </div>
+    <div class="card-body">
+    {% from "_formhelpers.html" import render_field %}
+    {% include '_messages.html' %}
+      <form method="post">
+          {{form.csrf_token}}
+          <div>
+          {{ render_field(form.email, class="form-control") }}
+          {{ render_field(form.password, class="form-control") }}        
+          </div>
+        <div class="container">
+          <div class="row">
+            <div class=""><p><input type=submit value=Login class="btn btn-info mt-2"></p></div>
+            <div class="col-md-3"><a href="{{url_for('home')}}" class="btn btn-info mt-2">Home</a></div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

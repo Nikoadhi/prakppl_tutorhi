@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <br>
+            <br>
+            <br>
+            <br>
+            Invoice: {{orders.invoice}}
+            <br>
+            Status: {{orders.status}}
+            <br>
+            Customer name: {{customer.name}}
+            <br>
+            Customer email: {{customer.email}}
+            <br>
+            Customer contact: {{customer.phone}}
+            <br>
+        </div>
+        
+        <div class="container mt-5">
+        <table class="table table table-bordered table-sm">
+            <thead>
+                <th>No</th>
+                <th>Name</th>
+                <th>Price</th>
+            </thead>
+            <tbody>
+                {% for key, course in orders.orders.items() %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{course.name}}</td>
+                    <td>Rp {{course.price}}</td>
+                    
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Total : Rp {{total}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <a class="nav-link btn-success" href="{{url_for('home')}}">Check Out</span></a>
+    </div>
+</div>
+</div>
+
+
+{% endblock content %}

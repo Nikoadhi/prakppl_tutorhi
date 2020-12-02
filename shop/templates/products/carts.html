@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+<div class="container">
+    <br>
+            <br>
+            <br>
+            <br>
+    <div class="row">
+        
+        <table class="table table-hover table-sm">
+            <thead class="thead-dark">
+                <th>No</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th></th>
+            </thead>
+            <tbody>
+                {% for key, course in session['Shoppingcart'].items() %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{course.name}}</td>
+                    <td>Rp {{course.price}}</td>
+                    <td><a href="{{url_for('deleteitem', id=key)}}" class="btn btn-sm btn-danger">Delete</a></td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td>Total : {{total}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="{{url_for('get_order', id=key)}}" class="btn btn-sm btn-success">Order</a>
+    </div>
+</div>
+
+
+{% endblock content %}
